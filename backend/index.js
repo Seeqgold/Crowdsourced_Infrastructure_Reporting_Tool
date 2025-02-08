@@ -21,25 +21,7 @@ app.use('/api/user', userRoute);
 // create user
 //login user
 
-// app.post('/api/user/login', async (req, res) => {
-//     try {
-//       const { username, password } = req.body;
-//       const existingUser = await user.findOne({ username });
-//       if (!existingUser) {
-//         return res.status(401).json({ message: 'Invalid username' });
-//       }
-  
-//       const isMatch = await existingUser.matchPassword(password);
-//       if (!isMatch) {
-//         return res.status(401).json({ message: 'Invalid password' });
-//       }
-  
-//       const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET, { expiresIn: '50d' });
-//       res.status(200).json({ token });
-//     } catch (error) {
-//       res.status(500).json({ message: 'Internal Server Error' });
-//     }
-//   });
+
   
 //   app.get('/api/user',  async(req,res)=>{
 //     try {
