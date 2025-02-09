@@ -8,8 +8,12 @@ const createUser = async (req,res)=>{
     if (!username || !email || !password) {
       return  res.status(401).json({message: 'All fields are required'});
     };
+
         const User = await user.create(req.body);
         res.status(200).json(User);
+      
+   
+
     } catch (error) {
         res.status(500).json({message: "internal error"})
     };
@@ -24,7 +28,7 @@ const createUser = async (req,res)=>{
     if (!existingUser) {
       return res.status(401).json({ message: 'Invalid username' });
     }
-
+   
     // Ensure JWT secret is available
     if (!process.env.JWT_SECRET) {
       return res.status(500).json({ message: 'Server error: Missing JWT secret' });
