@@ -30,17 +30,17 @@ const createUser = async (req,res)=>{
 
  const loginUser = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    const existingUser = await user.findOne({ username });
+    const existingUser = await user.findOne({ email });
     if (!existingUser) {
-      return res.status(401).json({ message: 'Invalid username' });
+      return res.status(401).json({ message: 'Invalid email' });
     }
    
             // Compare entered password with the hashed password
             const isMatch = await bcrypt.compare(password, existingUser.password);
             if (!isMatch) {
-                return res.status(401).json({ message: 'Invalid username or password' });
+                return res.status(401).json({ message: 'Invalid email or password' });
             }
 
             
