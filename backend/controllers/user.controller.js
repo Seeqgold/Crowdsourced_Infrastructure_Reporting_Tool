@@ -1,6 +1,7 @@
 const user = require('../models/user.model.js');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const bcrypt = require('bcrypt');
 
 const createUser = async (req,res)=>{
     try {
@@ -8,8 +9,15 @@ const createUser = async (req,res)=>{
     if (!username || !email || !password) {
       return  res.status(401).json({message: 'All fields are required'});
     };
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
-        const User = await user.create(req.body);
+
+        const User = await user.create({
+          username,
+          email,
+          password: hashedPassword,
+        });
         res.status(200).json(User);
       
    
@@ -29,6 +37,13 @@ const createUser = async (req,res)=>{
       return res.status(401).json({ message: 'Invalid username' });
     }
    
+            // Compare entered password with the hashed password
+            const isMatch = await bcrypt.compare(password, existingUser.password);
+            if (!isMatch) {
+                return res.status(401).json({ message: 'Invalid username or password' });
+            }
+
+            
     // Ensure JWT secret is available
     if (!process.env.JWT_SECRET) {
       return res.status(500).json({ message: 'Server error: Missing JWT secret' });
@@ -36,7 +51,7 @@ const createUser = async (req,res)=>{
 
     // Generate JWT Token
     const token = jwt.sign(
-      { id: existingUser._id, role: existingUser.role },
+      { id: existingUser._id },
       process.env.JWT_SECRET,
       { expiresIn: '50d' }
     );
@@ -48,6 +63,8 @@ const createUser = async (req,res)=>{
 }
 
 };
+
+
 
     const getUser =   async(req,res)=>{
        try {
