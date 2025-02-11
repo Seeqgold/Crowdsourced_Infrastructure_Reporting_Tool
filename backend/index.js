@@ -5,7 +5,6 @@ const user = require('./models/user.model.js');
 const userRoute = require('./routes/user.routes.js');
 
 
-
  const app = express();
 app.use(express.json());
 app.use('/api/user', userRoute);

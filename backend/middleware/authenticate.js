@@ -6,7 +6,7 @@ const authenticate = async (req, res, next) => {
     
     const token = req.header('Authorization').replace('Bearer ', '');
 if (!token) {
-    res.status(401).json({message:'Access denied. No token provided'})
+    res.status(401).json({message:'Access denied.'})
 }
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;

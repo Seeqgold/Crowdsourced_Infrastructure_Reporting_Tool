@@ -4,11 +4,14 @@ const userSchema = mongoose.Schema({
     username:{
         type: String,
         required: true,
+        unique:true
 
     },
     email: {
         type: String,
         required: true,
+        unique:true
+
     },
     password: {
         type: String,
@@ -17,8 +20,8 @@ const userSchema = mongoose.Schema({
     role: {
         type: String,
         required:true,
-        enum:['citizen', 'authority'],
-        default: 'citizen',
+        enum:['user', 'authority', 'admin'],
+        default: 'user',
     }
 },{timestamps: true});
 user = mongoose.model('user', userSchema);

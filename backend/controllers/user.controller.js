@@ -7,7 +7,7 @@ const createUser = async (req,res)=>{
     try {
         const {username, password, email} = req.body;
     if (!username || !email || !password) {
-      return  res.status(401).json({message: 'All fields are required'});
+      return  res.status(400).json({message: 'All fields are required'});
     };
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -20,7 +20,6 @@ const createUser = async (req,res)=>{
         });
         res.status(200).json(User);
       
-   
 
     } catch (error) {
         res.status(500).json({message: "internal error"})
@@ -34,13 +33,13 @@ const createUser = async (req,res)=>{
 
     const existingUser = await user.findOne({ email });
     if (!existingUser) {
-      return res.status(401).json({ message: 'Invalid email' });
+      return res.status(400).json({ message: 'Invalid email or password' });
     }
    
             // Compare entered password with the hashed password
             const isMatch = await bcrypt.compare(password, existingUser.password);
             if (!isMatch) {
-                return res.status(401).json({ message: 'Invalid email or password' });
+                return res.status(400).json({ message: 'Invalid email or password' });
             }
 
             
@@ -53,7 +52,7 @@ const createUser = async (req,res)=>{
     const token = jwt.sign(
       { id: existingUser._id },
       process.env.JWT_SECRET,
-      { expiresIn: '50d' }
+      { expiresIn: process.env.expiryTime }
     );
 
     res.status(200).json({ token });
@@ -63,8 +62,6 @@ const createUser = async (req,res)=>{
 }
 
 };
-
-
 
     const getUser =   async(req,res)=>{
        try {
