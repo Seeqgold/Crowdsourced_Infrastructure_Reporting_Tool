@@ -31,7 +31,7 @@ body {
 
 h2 {
   text-align: center;
-  color: #006400;
+  color: #4CAF50;
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -39,15 +39,17 @@ h2 {
 
 label {
   display: block;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 2px;
+  font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #006400;
 }
 
 input,
 textarea,
 select {
-  width: 100%;
+  width: 90%;
   padding: 12px;
   margin-top: 5px;
   border: 1px solid #ddd;
@@ -63,41 +65,12 @@ select:focus {
   box-shadow: 0 0 5px rgba(0, 100, 0, 0.2);
 }
 
-button {
-  background-color: #006400;
-  color: white;
-  border: none;
-  padding: 15px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-button:hover {
-  background-color: #004d00;
-}
-
-.hidden {
-  display: none;
-}
-
-#confirmationMessage {
-  text-align: center;
-  color: #006400;
-  font-weight: 500;
-  margin-top: 15px;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: #013a01;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 100, 0, 0.2);
 }
 
 .severity-options {
@@ -126,5 +99,41 @@ a:hover {
 .radio-option label {
   display: inline-block;
   padding-bottom: 10px;
-  /* Change to inline-block */
+}
+
+button {
+  background-color: #006400;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 40px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #4CAF50;
+}
+
+.hidden {
+  display: none;
+}
+
+#confirmationMessage {
+  text-align: center;
+  color: #006400;
+  font-weight: 500;
+  margin-top: 15px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
