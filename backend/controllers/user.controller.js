@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const createUser = async (req,res)=>{
     try {
         const {username, password, email} = req.body;
-    if (!username || !email || !password || !role) {
+    if (!username || !email || !password) {
       return  res.status(400).json({message: 'All fields are required'});
     };
 
@@ -25,7 +25,7 @@ if (existingUser) {
           username,
           email,
           password: hashedPassword,
-          role,
+          
         });
         res.status(200).json(User);
       
