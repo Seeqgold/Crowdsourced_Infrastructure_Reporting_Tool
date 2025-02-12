@@ -6,9 +6,17 @@ const bcrypt = require('bcrypt');
 const createUser = async (req,res)=>{
     try {
         const {username, password, email} = req.body;
-    if (!username || !email || !password) {
+    if (!username || !email || !password || !role) {
       return  res.status(400).json({message: 'All fields are required'});
     };
+
+   const existingUser = await user.findOne({ $or: [{ username }, { email }]
+});
+
+if (existingUser) {
+    return res.status(400).json({ message: 'Username or Email already exists' });
+}
+
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -17,6 +25,7 @@ const createUser = async (req,res)=>{
           username,
           email,
           password: hashedPassword,
+          role,
         });
         res.status(200).json(User);
       
@@ -50,9 +59,9 @@ const createUser = async (req,res)=>{
 
     // Generate JWT Token
     const token = jwt.sign(
-      { id: existingUser._id },
+      { email: existingUser.email, id: existingUser._id, role: existingUser.role},
       process.env.JWT_SECRET,
-      { expiresIn: process.env.expiryTime }
+      { expiresIn: process.env.JWT_EXPIRY_TIME }
     );
 
     res.status(200).json({ token });
