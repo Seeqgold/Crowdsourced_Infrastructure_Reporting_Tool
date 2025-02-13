@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Other Related Issues</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <form></form>
-    </body>
+
+<head>
+    <meta charset="UTF8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Other Related Issues</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- sidebar with nav Button -->
+    <aside id="sidebar">
+        <button id="hamburger-menu">☰</button>
+        <ul class="side-buttons">
+            <li><a href="home.html">#Home</a></li>
+            <li><a href="Potholes.html">#Potholes</a></li>
+            <li><a href="Street-light.html">#Street light issues</a></li>
+            <li><a href="Traffic-light.html">#Traffick light issues</a></li>
+            <li><a href="Other-issues"></a>#Report other issues</li>
+        </ul>
+    </aside>
+
+    <!-- main content -->
+
+    <header>
+        <h1>Welcome to Other Issues</h1>
+        <p>please fill the form to report any other road related issues</p>
+    </header>
+
+    <section id="Form-container">
+        <form class="other-issues" action="/submit-report" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Enter other Road Safety Issues Encountered</legend>
+
+                <label for="issue-list">Select Where Applicable:</label>
+                <select name="issue-list" id="issue-list" required>
+                    <option value="road-surface">Road Surface Issues (e.g., cracks, damaged roads)</option>
+                    <option value="obstruction">Road Obstruction (e.g., fallen trees, construction materials)</option>
+                    <option value="traffic-signage">Traffick Signage Problem (e,g., missing stop signs, unclear road
+                        signs)</option>
+                    <option value="Pedestrian-safety">Pedestrian-Safety (e.g., damaged sidewalks, dangerous crossing)
+                    </option>
+                    <option value="poor-visibility">Poor Visibility (e.g., overgrown vegitation, bloocking road signs
+                    </option>
+                    <option value="speeding">Speeding/Traffic Behaviour (e.g, speeding in schools zones, public walk
+                    </option>
+                    <option value="emergency">Emergency Response (e.g., accident prone areas, broken fire hydrants
+                    </option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="issue-details">Provide Details:</label>
+                <textarea name="issue-details" id="issue-details" rows="5"
+                    placeholder="provide an overview to the issues highlight above"></textarea>
+
+                <label for="location">Location (provide the address, landmark and GPS Coordinates):</label>
+                <input type="text" name="location" id="location" placeholder="Exact location needed" required>
+
+                <label for="issue-impact">Impact of the issue:</label>
+                <select name="issue-impact" id="issue-impact" required>
+                    <option value="high">high Impact/option>
+                    <option value="Moderate">Moderate Impact</option>
+                    <option value="Low">Low Impact</option>
+                </select>
+
+                <label for="issue-photo">Upload an image of the issue:</label>
+                <input type="file" name="issue-photo" id="issue-photo" accept="image/*" required>
+
+                <label for="inputs">Addition information/suggestions</label>
+                <textarea name="inputs" id="inputs" rows="4" placeholder="Tell us more if you may"></textarea>
+                <button type="submit"> Submit</button>
+            </fieldset>
+        </form>
+    </section>
+
+    <!-- Return to Homepage Button (Initially Hidden) -->
+
+    <div class="reture-home" id="reture-home">
+        <a><button class="reture-button">Homepage</button></a>
+    </div>
+
+    <!-- footer -->
+
+   <footer>
+    <p>Powered by road safety Awareness Commission Team ©</p>
+   </footer>
+   <script src="script.js"></script>
+
+</body>
 </html>
