@@ -25,7 +25,7 @@ if (existingUser) {
           username,
           email,
           password: hashedPassword,
-          
+
         });
         res.status(200).json(User);
       
@@ -59,12 +59,12 @@ if (existingUser) {
 
     // Generate JWT Token
     const token = jwt.sign(
-      { email: existingUser.email, id: existingUser._id, role: existingUser.role},
+      { email: existingUser.email, id: existingUser._id, role: existingUser.role, username: existingUser.username},
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRY_TIME }
     );
 
-    res.status(200).json({ token });
+    res.status(200).json({ token});
 
   } catch (error) {
   res.status(500).json({ message: 'Internal Server Error', error: error.message });
