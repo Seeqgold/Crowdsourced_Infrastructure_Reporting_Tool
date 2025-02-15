@@ -6,28 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Other Related Issues</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
 </head>
 
 <body>
     <!-- sidebar with nav Button -->
     <aside id="sidebar">
-        <button id="hamburger-menu">☰</button>
-        <ul class="side-buttons">
-            <li><a href="home.html">#Home</a></li>
-            <li><a href="Potholes.html">#Potholes</a></li>
-            <li><a href="Street-light.html">#Street light issues</a></li>
-            <li><a href="Traffic-light.html">#Traffick light issues</a></li>
-            <li><a href="Other-issues"></a>#Report other issues</li>
-        </ul>
+        <div class="container">
+            <ul class="side-buttons">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#Potholes">Potholes</a></li>
+                <li><a href="#Street">Street light issues</a></li>
+                <li><a href="#Traffic">Traffick light issues</a></li>
+                <li><a href="#Other-issues">Report other issues</a></li>
+            </ul>
+        </div>
     </aside>
+
+    <!-- Toggle Button-->
+
+
+    <button id="hamburger-menu">☰</button>
+    <div class="Introduction">
+        <h1>Welcome to Other Issues</h1>
+        <p>please fill the form to report any other road related issues</p>
+    </div>
 
     <!-- main content -->
 
-    <header>
-        <h1>Welcome to Other Issues</h1>
-        <p>please fill the form to report any other road related issues</p>
-    </header>
 
     <section id="Form-container">
         <form id="other-issues" action="/submit-report" method="post" enctype="multipart/form-data">
@@ -60,7 +66,7 @@
 
                 <label for="issue-impact">Impact of the issue:</label>
                 <select name="issue-impact" id="issue-impact" required>
-                    <option value="high">high Impact/option>
+                    <option value="high">high Impact/option></option>
                     <option value="Moderate">Moderate Impact</option>
                     <option value="Low">Low Impact</option>
                 </select>
@@ -70,7 +76,7 @@
 
                 <label for="inputs">Addition information/suggestions</label>
                 <textarea name="inputs" id="inputs" rows="4" placeholder="Tell us more if you may"></textarea>
-                <button type="submit"> Submit</button>
+                <div><button type="submit"> Submit</button></div>
             </fieldset>
         </form>
     </section>
@@ -86,7 +92,8 @@
     <footer>
         <p>Powered by road safety Awareness Commission Team ©</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="form.js"></script>
 
 </body>
 

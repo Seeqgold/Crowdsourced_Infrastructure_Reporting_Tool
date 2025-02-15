@@ -1,4 +1,4 @@
-* {
+* body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -9,18 +9,21 @@
 }
 
 p {
-    font-size: medium;
+    font-size: 15px;
+}
+
+h1 {
+    font-size: 25px;
 }
 
 #sidebar {
-    display: none;
-    color: black;
+    color: white;
     background-color: #14cf9a;
     position: fixed;
-    left: 0;
+    left: -300;
     top: 0;
-    height: 100%;
-    width: 200px;
+    height: 100vh;
+    width: 250px;
     padding-top: 25px;
     padding-left: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.4);
@@ -28,42 +31,80 @@ p {
 
 #sidebae ul {
     list-style: none;
+
 }
 
 #sidebar ul li {
-    margin: 20px 0;
+    list-style: none;
+    padding: 15px;
 }
 
 #sidebar a {
+    position: relative;
+    list-style: none;
     padding: 10px;
     color: black;
     text-decoration: none;
-    font-size: medium;
-    display: block;
+    border-radius: 40px;
 }
 
 #sidebar a:hover {
-    background-color: black;
+    background-color: white;
     color: #14cf9a;
 }
 
-button {
-    padding: 12px;
+#hamburger-menu {
+    color: white;
+    background-color: #14cf9a;
+    position: fixed;
+    left: 85px;
+    top: 15px;
+    padding: 5px 5px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 80px;
+}
+
+#hamburger-menu:hover {
+    color: #14cf9a;
+    background-color: white;
+}
+
+.Introduction {
+    margin-left: 300px;
+    padding: 20px;
+    flex-grow: 1;
+    position: relative;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+#other-issues button {
+    position: sticky;
+    padding-bottom: 20px;
+    padding-top: 7px;
     color: white;
     background-color: #13d36d;
     cursor: pointer;
-    font-size: medium;
-    border: none border-radius: 10px;
-    width: 100%;
+    border: 1px black solid;
+    border-radius: 15px;
+    height: 30px;
+    width: 100px;
+    margin-left: 150px;
+
 }
 
-button:hover {
+#other-issues button:hover {
     background-color: white;
     color: #13d36d;
 }
 
 #return-home {
-    margin-top: 22px;
+    margin-top: 10px;
 }
 
 #return-home a {
@@ -72,14 +113,18 @@ button:hover {
 
 #return-home a button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 5px;
     text-decoration: none;
+    margin-top: 15px;
 }
 
 /*Styling Form*/
 
+
+
 #Form-container {
     margin-left: 300px;
+    margin-bottom: 70px;
     /* since we have a side bar*/
     padding: 25px;
     background-color: lightgrey;
@@ -90,16 +135,44 @@ button:hover {
 
 form label {
     display: block;
-    margin: 10px 0 5px;
+    margin-left: 30px;
+    padding-top: 10px;
 }
 
 form input,
 form select,
-form textarea,
 form button {
-    padding: 10px;
-    margin: 8px o;
+    padding: 5px;
+    margin-left: 30px;
     border: 1px solid rgb(113, 104, 104);
     border-radius: 5px;
-    width: 100%;
+    width: 350px;
+    height: 100%;
+}
+
+form textarea {
+    padding: 5px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(113, 104, 104);
+    border-radius: 5px;
+    width: 350px;
+    height: 100%;
+}
+
+footer {
+    position: relative;
+}
+
+/* Media query for responsiveness */
+
+@media screen and (max-width: 768px) {
+    #sidebar {
+        left: -300px;
+        /*hidding content for mobile initially*/
+    }
+
+    .Introduction {
+        margin-left: 0;
+    }
 }

@@ -1,18 +1,17 @@
 // to toggle sidebar visibility
 
-function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    if (sidebar.style.display ==='none') {
-        sidebar.style.display ='block'
+const toggleBtn = document.getElementById("hamburger-menu");
+const sidebar = document.getElementById("sidebar")
+
+//Adding onclick event listener to toggle button 
+
+toggleBtn.addEventListener("click", () => {
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-300px"; // Hides the sidebar
     } else {
-        sidebar.style.display ='none'
-    }
-}
-
-// Attaching event listener
-
-const toggleButton = document.getElementById('hamburger-menu');
-toggleButton.addEventListener('onclick', toggleSidebar)
+       sidebar.style.left = "0px"; // Shows the sidebar
+    } 
+});
 
 // To handle form submission button
 
@@ -29,9 +28,9 @@ function handleFormSubmission(event) {
 
     //stimulating a short delay before showing the homepage button
 
-    setTimeout() => {
+    setTimeout(() => {
         alert('Your report has been submitted!');
-    }
+    }, 1000);
 }
 
 // Selecting the form to attack the submit event listener
