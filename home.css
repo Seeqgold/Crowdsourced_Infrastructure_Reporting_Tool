@@ -1,15 +1,31 @@
 ::-webkit-scrollbar {
   display: none;
 }
+.btn-danger {
+  background-color: rgb(254, 50, 50);
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
 
-a {
+.col-lg-4 a {
   text-decoration: none;
   color: black;
 }
+p {
+  text-wrap: pretty;
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url(./images/troy-mortier-eKY6_9W_iqY-unsplash.jpg) no-repeat center center;
+  background: url(./images/troy-mortier-eKY6_9W_iqY-unsplash.jpg) no-repeat
+    center center;
   background-size: cover;
   padding-top: 8rem;
   padding-bottom: 8rem;
@@ -22,11 +38,14 @@ header.masthead:before {
   width: 100%;
   top: 0;
   left: 0;
-  opacity: 0.5;
+  opacity: 0.2;
 }
 header.masthead h1 {
+  margin: 0.5em;
   font-size: 2rem;
-  width: 60%;
+  width: 80%;
+  color: rgb(255, 255, 255);
+  z-index: 1;
 }
 @media (min-width: 768px) {
   header.masthead {
@@ -37,13 +56,9 @@ header.masthead h1 {
     font-size: 3rem;
   }
 }
+/* nav */
 nav {
   align-items: center;
-}
-.nav-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .navbar {
   display: flex;
@@ -53,41 +68,61 @@ nav {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-
-.container {
-  width: 100%;
+.nav-container {
+  display: none;
 }
-
+@media (min-width: 600px) {
+  .nav-container {
+    width: 20rem;
+    display: flex;
+    justify-content: space-around;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid #2ad230;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
+/* icon container */
+.container {
+  width: 80%;
+  margin: 1em;
+}
+.container h3,
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: auto;
+    margin: 2em 0 2em 2em;
+  }
+  .icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .col-lg-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 5%;
+  }
+}
 .icon-container {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.icon-item {
-  display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  position: relative;
-}
-
-.icon-background {
-  height: 100px;
-  width: 100px;
-  border-radius: 100px;
-  background-color: #2ad230;
-}
-.combo {
-  position: relative;
-}
-.alert {
-  height: 6.5rem;
-}
-.icon-items {
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 100%;
 }
 .col-lg-4 {
   display: flex;
@@ -95,24 +130,83 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.card-container {
   width: 100%;
 }
-.row{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: relative; */
+}
+
+.icon-background {
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  background-color: #2ad230;
+}
+.combo {
+  position: relative;
+}
+.alert {
+  height: 6rem;
+}
+.icon-items {
+  position: absolute;
+  top: 20%;
+  left: 19%;
+}
+
+/* cards */
+.card-container {
+  width: 90%;
+  margin: 2em 0 0 1em;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 .card {
-  height: 30rem;
-  width: 23rem;
-  margin: 2em 0 0 5em;
+  width: 80%;
+  margin: 0.5em 0 1em 1em;
+  padding: 1em;
   display: flex;
   align-items: center;
-  border: none;
+  border: 1px solid #2ad230;
   border-radius: 10px;
+}
+@media (min-width: 600px) {
+  .card-container {
+    width: auto;
+    margin: 2em 0 2em 2em;
+  }
+  .card {
+    width: 20rem;
+    height: 15rem, auto;
+    margin: 2em;
+  }
+
+  .location {
+    border-radius: 10px;
+    border: 3px dashed rgba(69, 68, 68, 0.17);
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 10px;
+    padding: 5px;
+    color: rgba(69, 68, 68, 0.922);
+    background-color: rgba(69, 68, 68, 0.079);
+  }
+  .description {
+    border-radius: 10px;
+    border: 3px solid rgba(69, 68, 68, 0.17);
+    width: 100%;
+    height: 6rem;
+    margin-top: 5px;
+    padding: 5px;
+    color: rgba(69, 68, 68, 0.922);
+    background-color: rgba(69, 68, 68, 0.079);
+  }
 }
 .card-body {
   display: flex;
@@ -121,8 +215,9 @@ nav {
   text-align: left;
   width: 100%;
 }
-.card-img{
-  background: url(./images/troy-mortier-AieHOEGMKmk-unsplash.jpg) no-repeat center center;
+.card-img {
+  background: url(./images/troy-mortier-AieHOEGMKmk-unsplash.jpg) no-repeat
+    center center;
   background-size: cover;
   border-radius: 10px;
   width: 100%;
@@ -130,21 +225,64 @@ nav {
 .location {
   border-radius: 10px;
   border: 3px dashed rgba(69, 68, 68, 0.17);
-  width: 100%;
-  height: 3rem;
+  width: 90%;
+  height: auto;
   margin-bottom: 10px;
   padding: 5px;
   color: rgba(69, 68, 68, 0.922);
   background-color: rgba(69, 68, 68, 0.079);
 }
-
-.description{
+.location::before {
+  content: "Location:";
+}
+.description::before {
+  content: "Description:";
+}
+.description {
   border-radius: 10px;
   border: 3px solid rgba(69, 68, 68, 0.17);
-  width: 100%;
-  height: 6rem;
+  width: 90%;
+  height: 3rem, auto;
   margin-top: 5px;
   padding: 5px;
   color: rgba(69, 68, 68, 0.922);
-  background-color: rgba(69, 68, 68, 0.079); 
+  background-color: rgba(69, 68, 68, 0.079);
+}
+.text-body,
+.location-body {
+  color: rgba(10, 5, 5, 0.922);
+  font-weight: 700;
+  margin: 0;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+/* footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #2ad230;
+  color: black;
+  padding: 0.5em;
+  margin-top: 1rem;
+}
+footer i {
+  cursor: pointer;
+  margin-top: 0.5em;
+}
+.space-x-2 {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+.footer-text {
+  width: 65%;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .space-x-2 {
+    width: 10%;
+  }
 }

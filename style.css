@@ -6,6 +6,10 @@ body{
     overflow-x: hidden;
     background-color:	#F0FFF0;
 }
+a{
+    color: rgb(44, 121, 245);
+    text-decoration: none;
+}
 .card{
     padding: 25px;
     border: 1px solid black;
@@ -28,10 +32,12 @@ body{
     padding: 10px 20px;
     margin: 8px 0;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
 }
+
 .btn:hover{
     background-color: #2ad230;
     color: white;
@@ -54,6 +60,7 @@ form{
 .img-section{
     position: relative;
 }
+
 @media screen and (max-width: 768px){
     .navbar{
         justify-content: center;
