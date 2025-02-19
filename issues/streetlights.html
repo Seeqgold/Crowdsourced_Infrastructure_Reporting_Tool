@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreetLight Issue</title>
+  <link rel="stylesheet" href="issues.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <h2>STREET LIGHT ISSUE</h2>
+    <form id="reportForm">
+      <label for="address">Location of the Issue</label>
+      <input type="text" id="address" name="address" placeholder="Enter street, city, state" required>
+
+      <label for="title">Short Title</label>
+      <input type="text" id="title" name="title" placeholder="e.g., Deep pothole near roundabout" required>
+
+      <label for="description">Detailed Description</label>
+      <textarea id="description" name="description" rows="4" placeholder="Describe the issue in detail"
+        required></textarea>
+
+      <label>Severity Level</label>
+      <div class="severity-options">
+        <div class="radio-option">
+          <input type="radio" id="minor" name="severity" value="Minor" required checked>
+          <label for="minor">Minor (not urgent)</label>
+
+        </div>
+
+        <div class="radio-option">
+          <input type="radio" id="moderate" name="severity" value="Moderate">
+          <label for="moderate">Moderate (needs attention)</label>
+        </div>
+
+        <div class="radio-option">
+          <input type="radio" id="severe" name="severity" value="Severe">
+          <label for="severe">Severe (dangerous, needs urgent action)</label>
+        </div>
+      </div>
+
+      <label>How Long Has the Issue Been There? (Optional)</label>
+      <select id="duration" name="duration">
+        <option value="less_than_week">Less than a week</option>
+        <option value="1-4_weeks">1-4 weeks</option>
+        <option value="over_a_month">Over a month</option>
+      </select>
+
+      <label for="images">Upload Image(s)</label>
+      <input type="file" id="images" name="images" multiple>
+
+      <label for="contact">Email or Phone Number (Optional)</label>
+      <input type="text" id="contact" name="contact" placeholder="Enter your email or phone number">
+
+      <label for="comments">Additional Comments or Suggestions (Optional)</label>
+      <textarea id="comments" name="comments" rows="3" placeholder="Any extra details?"></textarea>
+
+      <button type="submit">Submit Report</button>
+    </form>
+
+
+    <p id="confirmationMessage" class="hidden">Thank you for your report! Track your report <a href="#">here</a>.</p>
+  </div>
+
+
+  <script src="issues.js"></script>
+</body>
+
+</html>

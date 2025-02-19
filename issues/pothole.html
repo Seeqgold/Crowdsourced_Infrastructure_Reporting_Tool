@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Porthole Issue</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="issues.css" />
+    <link rel="stylesheet" href="./../home.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light static-top">
+      <div class="row">
+        <div class="mx-5">
+          <h4>Holder Text</h4>
+        </div>
+      </div>
+      <div class="nav-container gap-5">
+        <a class="" href="./../home.html">Home</a>
+        <a class="" href="#report">Report</a>
+        <a class="" href="#footer">Contact us</a>
+      </div>
+      <div class="mx-5">
+        <a class="btn btn-danger" href=""> Log out</a>
+      </div>
+    </nav>
+
+    <section id="report" class="issue-section">
+      <div class="issue-container">
+        <h2>Report your issue here</h2>
+        <form id="reportForm">
+          <label for="address">Location</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Enter street, city, state"
+            required
+          />
+
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="e.g., Deep pothole near roundabout"
+            required
+          />
+
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            placeholder="Describe the issue in detail"
+            required
+          ></textarea>
+
+          <label>Severity Level</label>
+          <div class="severity-options">
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="minor"
+                name="severity"
+                value="Minor"
+                required
+                checked
+              />
+              <label for="minor">Minor (not urgent)</label>
+            </div>
+
+            <div class="radio-option">
+              <input
+                type="radio"
+                id="moderate"
+                name="severity"
+                value="Moderate"
+              />
+              <label for="moderate">Moderate (needs attention)</label>
+            </div>
+
+            <div class="radio-option">
+              <input type="radio" id="severe" name="severity" value="Severe" />
+              <label for="severe"
+                >Severe (dangerous, needs urgent action)</label
+              >
+            </div>
+          </div>
+
+          <!-- <label>How Long Has the Issue Been There? (Optional)</label>
+      <select id="duration" name="duration">
+        <option value="less_than_week">Less than a week</option>
+        <option value="1-4_weeks">1-4 weeks</option>
+        <option value="over_a_month">Over a month</option>
+      </select> -->
+
+          <label for="images">Upload Image(s)</label>
+          <input type="file" id="images" name="images" multiple />
+
+          <label for="contact">Email or Phone Number (Optional)</label>
+          <input
+            type="text"
+            id="contact"
+            name="contact"
+            placeholder="Enter your email or phone number"
+          />
+
+          <label for="comments">Comments or Suggestions (Optional)</label>
+          <textarea
+            id="comments"
+            name="comments"
+            rows="3"
+            placeholder="Any extra details?"
+          ></textarea>
+
+          <button type="submit">Submit Report</button>
+        </form>
+
+        <p id="confirmationMessage" class="hidden">
+          Thank you for your report! Track your report
+          <a href="./../home.html">here</a>.
+        </p>
+      </div>
+    </section>
+
+    <footer
+      id="footer"
+      class="bg-green-100 text-gray-800 fixed inset-x-0 bottom-0 p-4 text-xs flex justify-between"
+    >
+      <div>&copy; SheCodeAfrica x Glovo Academy ~ team 3</div>
+      <div class="space-x-2">
+        <i class="fa fa-instagram"></i>
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-envelope"></i>
+      </div>
+    </footer>
+
+    <script src="issues.js"></script>
+  </body>
+</html>
