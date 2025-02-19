@@ -54,16 +54,13 @@
 
     <section id="Form-container">
       <form
-        id="other-issues"
-        action="/submit-report"
-        method="post"
-        enctype="multipart/form-data"
+        id="otherIssues"
       >
         <fieldset>
           <legend>Enter other Road Safety Issues Encountered</legend>
 
-          <label for="issue-list">Select Where Applicable:</label>
-          <select name="issue-list" id="issue-list" required>
+          <label for="issueTitle">Select Where Applicable:</label>
+          <select name="issueTitle" id="issueTitle" required>
             <option value="road-surface">
               Road Surface Issues (e.g., cracks, damaged roads)
             </option>
@@ -91,22 +88,22 @@
             <option value="Other">Other</option>
           </select>
 
-          <label for="issue-details">Provide Details:</label>
+          <label for="issueDescription">Provide Detailed Description:</label>
           <textarea
-            name="issue-details"
-            id="issue-details"
+            name="issueDescription"
+            id="issueDescription"
             rows="5"
             placeholder="provide an overview to the issues highlight above"
           ></textarea>
 
-          <label for="location"
+          <label for="issueLocation"
             >Location (provide the address, landmark and GPS
             Coordinates):</label
           >
           <input
             type="text"
-            name="location"
-            id="location"
+            name="issueLocation"
+            id="issueLocation"
             placeholder="Exact location needed"
             required
           />
@@ -158,6 +155,6 @@
         <i class="fa fa-envelope"></i>
       </div>
     </footer>
-    <script src="form.js"></script>
+    <script src="./../issues/issues.js"></script>
   </body>
 </html>
