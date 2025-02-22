@@ -11,31 +11,34 @@ const reportSchema = new mongoose.Schema({
     },
     reportType: {
         type: String,
-        required: true,
+        required: false,
         default: "Porthole",
-        enum: ["Porthole", "Streelight", "Others"]
+        enum: ["Porthole", "Streelight", "Others"],
+        required: false
     },
     description: {
         type: String,
-        required: true
+        required: false
     },
     severity: {
         type: String,
         default: "Minor",
-        enum: ["Minor", "Moderate", "Severe"]
+        enum: ["Minor", "Moderate", "Severe"],
+        required: false
     },
     duration: {
         type: String,
         default: "LessThanAWeek",
-        enum: ["LessThanAWeek", "OneToFourWeeks", "OverAMonth"]
+        enum: ["LessThanAWeek", "OneToFourWeeks", "OverAMonth"],
+        required: false
     },
     imageUrl: {
         type: String,
-        required: true
+        required: false
     },
     phoneNumber: {
         type: String,
-        required: true
+        required: false
     },
     additionalComments: {
         type: String
