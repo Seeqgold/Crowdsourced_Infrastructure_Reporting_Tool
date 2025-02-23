@@ -1,50 +1,51 @@
-// // to toggle sidebar visibility
-// function toggleSidebar() {
-//     const sidebar = document.getElementById('sidebar');
-//     if (sidebar.style.display ==='none') {
-//         sidebar.style.display ='block'
-//     } else {
-//         sidebar.style.display ='none'
-//     }
-// }
-// // Attaching event listener
-// const toggleButton = document.getElementById('hamburger-menu');
-// toggleButton.addEventListener('onclick', toggleSidebar)
-
-// To handle form submission button
-
-// function handleFormSubmission(event) {
-//     event.preventDefault(); //prevents the page from refreshing after submission
-
-//     // next stumulate form sumission
-//     console.log('Form submitted')
-
-//     //After submission show "Homepage" button
-
-//     const homePage = document.getElementById('return-home');
-//     homePage.style.display = 'block';
-
-//     //stimulating a short delay before showing the homepage button
-
-//     setTimeout = () => {
-//         alert('Your report has been submitted!');
-//     }
-// }
-document.getElementById('otherIssues').addEventListener('submit', function (event) {
+document
+  .getElementById("otherIssues")
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
-    const homePage = document.getElementById('return-home');
-    homePage.style.display = 'block';
 
-    setTimeout = () => {
-        alert('Your report has been submitted!');
+    const title = document.getElementById("issueTitle").value;
+    const location = document.getElementById("issueLocation").value;
+    const description = document.getElementById("issueDescription").value;
+    const reportType = "Porthole";
+    const phoneNumber = "09088776655";
+    const severity = document.getElementById("issueImpact").value;
+    const imageUrl = document.getElementById("issuePhoto").value;
+    const additionalComments = document.getElementById("inputs").value;
+    const issueData = {
+      location,
+      title,
+      reportType,
+      description,
+      severity,
+      imageUrl,
+      phoneNumber,
+      additionalComments,
+    };
+    console.log(issueData);
+    const response = await fetch(
+      "https://backend-vercel-seeqgold-sikirat-amobigold-s-projects.vercel.app/api/report",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(issueData),
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    console.log(response.status);
+    if (response.ok) {
+      const homePage = document.getElementById("return-home");
+      homePage.style.display = "block";
+
+      setTimeout = () => {
+        alert("Your report has been submitted!");
+      };
+      window.location.href = "/home.html";
+    } else{
+      alert("There was an error submitting your report. Please try again.");
+      console.error("Error submitting report:", error);
     }
-
-    const title = document.getElementById('issueTitle').value;
-    const address = document.getElementById('issueLocation').value;
-    const description = document.getElementById('issueDescription').value;
-    const issueData = { title, address, description };
-    // // To store data in a localStorage
-    // localStorage.setItem('issue', JSON.stringify(issueData));
-    // // To redirect to homepage
-    // window.location.href="./../home.html";
-})
+  });
+  // add a try catch block to handle errors and display a message to the user if there is an error
