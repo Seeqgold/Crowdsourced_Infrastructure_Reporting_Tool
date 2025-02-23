@@ -14,7 +14,6 @@ const reportSchema = new mongoose.Schema({
         required: false,
         default: "Porthole",
         enum: ["Porthole", "Streelight", "Others"],
-        required: false
     },
     description: {
         type: String,
