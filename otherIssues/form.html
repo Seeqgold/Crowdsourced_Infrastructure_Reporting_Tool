@@ -10,29 +10,20 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="./../home.css" />
     <link rel="stylesheet" href="form.css" />
     <title>Other Related Issues</title>
   </head>
 
   <body>
-    <!-- sidebar with nav Button -->
-    <!-- <aside id="sidebar">
-        <button id="hamburger-menu">☰</button>
-        <ul class="side-buttons">
-            <li><a href="home.html">#Home</a></li>
-            <li><a href="Potholes.html">#Potholes</a></li>
-            <li><a href="Street-light.html">#Street light issues</a></li>
-            <li><a href="Traffic-light.html">#Traffick light issues</a></li>
-            <li><a href="Other-issues"></a>#Report other issues</li>
-        </ul>
-    </aside> -->
-
     <nav class="navbar navbar-light static-top">
       <div class="row">
         <div class="mx-5">
-          <h4>Holder Text</h4>
+          <h4>CSIA</h4>
         </div>
       </div>
       <div class="nav-container gap-5">
@@ -53,9 +44,7 @@
     </header>
 
     <section id="Form-container">
-      <form
-        id="otherIssues"
-      >
+      <form method="post" action="/report" id="otherIssues">
         <fieldset>
           <legend>Enter other Road Safety Issues Encountered</legend>
 
@@ -68,7 +57,7 @@
               Road Obstruction (e.g., fallen trees, construction materials)
             </option>
             <option value="traffic-signage">
-              Traffick Signage Problem (e,g., missing stop signs, unclear road
+              Traffic Signage Problem (e,g., missing stop signs, unclear road
               signs)
             </option>
             <option value="Pedestrian-safety">
@@ -108,18 +97,18 @@
             required
           />
 
-          <label for="issue-impact">Impact of the issue:</label>
-          <select name="issue-impact" id="issue-impact" required>
-            <option value="high">high Impact/option></option>
+          <label for="issueImpact">Impact of the issue:</label>
+          <select name="issueImpact" id="issueImpact" required>
+            <option value="Severe">high Impact</option>
             <option value="Moderate">Moderate Impact</option>
-            <option value="Low">Low Impact</option>
+            <option value="Minor">Low Impact</option>
           </select>
 
-          <label for="issue-photo">Upload an image of the issue:</label>
+          <label for="issuePhoto">Upload an image of the issue:</label>
           <input
             type="file"
-            name="issue-photo"
-            id="issue-photo"
+            name="issuePhoto"
+            id="issuePhoto"
             accept="image/*"
             required
           />
@@ -155,6 +144,6 @@
         <i class="fa fa-envelope"></i>
       </div>
     </footer>
-    <script src="./../issues/issues.js"></script>
+    <script src="form.js"></script>
   </body>
 </html>

@@ -17,14 +17,14 @@ if (existingUser) {
     return res.status(400).json({ message: 'Username or Email already exists' });
 }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // const hashedPassword = await bcrypt.hash(password, salt);
 
 
         const User = await user.create({
           username,
           email,
-          password: hashedPassword,
+          password,
 
         });
         res.status(200).json(User);

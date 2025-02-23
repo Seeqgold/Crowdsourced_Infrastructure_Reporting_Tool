@@ -1,39 +1,46 @@
 document
   .getElementById("reportForm")
-  .addEventListener("submit", function (event) {
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
-    document.getElementById("confirmationMessage").classList.remove("hidden");
-    setTimeout = () => {
-      alert("Your report has been submitted!");
-    };
 
     const title = document.getElementById("title").value;
-    const address = document.getElementById("address").value;
+    const location = document.getElementById("address").value;
     const description = document.getElementById("description").value;
+    // const reportType = document.getElementById("description").value;
+    // const reportType = "Porthole";
+    const severity = document.getElementById("minor").value;
+    const imageUrl = document.getElementById("images").value;
+    const phoneNumber = document.getElementById("contact").value;
+    const additionalComments = document.getElementById("comments").value;
+    const issueData = {
+      location,
+      title,
+      description,
+      severity,
+      imageUrl,
+      phoneNumber,
+      additionalComments,
+    };
 
-    const issueData = { title, address, description };
-
-    // // To store data in a localStorage
-    // localStorage.setItem('issue', JSON.stringify(issueData));
-
-    // // To redirect to homepage
-    // window.location.href="./../home.html";
-  });
-  document.getElementById('otherIssues').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const homePage = document.getElementById('return-home');
-    homePage.style.display = 'block';
-
-    setTimeout = () => {
-        alert('Your report has been submitted!');
+    const response = await fetch(
+      "https://backend-vercel-seeqgold-sikirat-amobigold-s-projects.vercel.app/api/report",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(issueData),
+      }
+    );
+    const data = await response.json();
+    if (response.ok) {
+      document.getElementById("confirmationMessage").classList.remove("hidden");
+      setTimeout(() => {
+        alert("Your report has been submitted!");
+      }, 1000);
+      window.location.href = "/home.html";
     }
 
-    const title = document.getElementById('issueTitle').value;
-    const address = document.getElementById('issueLocation').value;
-    const description = document.getElementById('issueDescription').value;
-    const issueData = { title, address, description };
     // // To store data in a localStorage
     // localStorage.setItem('issue', JSON.stringify(issueData));
-    // // To redirect to homepage
-    // window.location.href="./../home.html";
-})
+  });
