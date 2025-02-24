@@ -5,7 +5,7 @@ const validateUser = (req, res, next) =>{
         username : joi.string().required(),
         email: joi.string().email().required(),
         password: joi.string().min(5).max(100).required(),
-        role: joi.string().valid('user', 'admin', 'authority').default('user')
+        role: joi.string().valid('user', 'admin', 'authority')
 
     });
     const {error} = Schema.validate(req.body);
