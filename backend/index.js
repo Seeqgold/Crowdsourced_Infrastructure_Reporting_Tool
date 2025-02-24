@@ -18,8 +18,8 @@ app.use('/api', reportRouter);
     res.send("getting started");
  });
 
- app.listen(3000, ()=>{
-    console.log('port is running on port 3000');
+ app.listen(process.env.PORT, ()=>{
+    console.log(`port is running on port ${process.env.PORT}`);
  });
 
  mongoose.connect(process.env.MONGO_URL).then(()=>{
