@@ -9,13 +9,17 @@ const reportRouter = require('./routes/report.js');
 
  const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+   origin: "*", 
+   methods: ["GET", "POST", "PUT", "DELETE"],
+   allowedHeaders: ["Content-Type", "Authorization"]
+ }));
 app.use('/api/user', userRoute);
 app.use('/api', reportRouter);
 
 
  app.get('/', (req,res)=>{
-    res.send("getting started");
+    res.send("CORS is working");
  });
 
  app.listen(process.env.PORT, ()=>{
