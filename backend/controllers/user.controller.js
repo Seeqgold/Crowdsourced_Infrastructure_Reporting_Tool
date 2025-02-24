@@ -2,6 +2,8 @@ const User = require('../models/user.model.js');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const bcrypt = require('bcrypt');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 
 const createUser = async (req,res)=>{
   try {
@@ -166,6 +168,8 @@ const deleteUser = async(req,res)=>{
   }
 };
 
+
+
 module.exports = {
-getUsers, createUser, getUser, loginUser, updateUser,deleteUser
+getUsers, createUser, getUser, loginUser, updateUser,deleteUser, getUsersByFilter
 };

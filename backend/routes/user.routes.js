@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user.model.js');
-const {createUser, getUser, getUsers,updateUser, deleteUser, loginUser} = require('../controllers/user.controller.js');
+const {createUser, getUser, getUsers,updateUser, deleteUser, loginUser, getUsersByFilter} = require('../controllers/user.controller.js');
 const authenticate = require('../middleware/authenticate.js');
 const validateUser = require('../middleware/validation.js');
 const authorizeRole = require('../middleware/authorization.js');
@@ -14,6 +14,7 @@ router.post('/', validateUser, createUser);
 router.post('/login', loginUser);
 router.get('/',authenticate, authorizeRole('admin'), getUsers);
 router.get('/:id',authenticate, authorizeRole('admin'), getUser);
+router.get('/:id',authenticate, authorizeRole('admin'), getUsersByFilter);
 router.put('/:id',authenticate, authorizeRole('admin'), updateUser);
 router.delete('/:id',authenticate, authorizeRole('admin'), deleteUser);
 
