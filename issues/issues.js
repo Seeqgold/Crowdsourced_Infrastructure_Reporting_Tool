@@ -23,7 +23,7 @@ document
     };
 
     const response = await fetch(
-      "https://backend-vercel-seeqgold-sikirat-amobigold-s-projects.vercel.app/api/report",
+      "https://backend-vercel-f4aqq1leu-csia-s-projects.vercel.app/api/report",
       {
         method: "POST",
         headers: {

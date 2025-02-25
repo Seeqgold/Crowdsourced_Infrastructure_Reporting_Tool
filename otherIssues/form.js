@@ -23,7 +23,7 @@ document
     };
     console.log(issueData);
     const response = await fetch(
-      "https://backend-vercel-seeqgold-sikirat-amobigold-s-projects.vercel.app/api/report",
+      "https://backend-vercel-f4aqq1leu-csia-s-projects.vercel.app/api/report",
       {
         method: "POST",
         headers: {
@@ -43,9 +43,9 @@ document
         alert("Your report has been submitted!");
       };
       window.location.href = "/home.html";
-    } else{
+    } else {
       alert("There was an error submitting your report. Please try again.");
       console.error("Error submitting report:", error);
     }
   });
-  // add a try catch block to handle errors and display a message to the user if there is an error
+// add a try catch block to handle errors and display a message to the user if there is an error
