@@ -18,7 +18,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   const data = await response.json();
   console.log(data);
   if (response.ok) {
-    alert(data.message);
+    alert("You're logged in");
     localStorage.setItem("token", data.token);
     window.location.href = "/home.html";
   }

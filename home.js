@@ -1,11 +1,11 @@
 const container = document.getElementById("col");
 
 document.addEventListener("DOMContentLoaded", async function () {
-  // const token = localStorage.getItem("token");
-  // if (!token) {
-  //   alert("You need to login first!");
-  //   window.location.href = "login.html";
-  // }
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("You need to login first!");
+    window.location.href = "login.html";
+  }
   try {
     const response = await fetch(
       "https://backend-vercel-f4aqq1leu-csia-s-projects.vercel.app/api/report",

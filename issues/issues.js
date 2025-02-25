@@ -21,24 +21,34 @@ document
       phoneNumber,
       additionalComments,
     };
+    try {
+      const response = await fetch(
+        "https://backend-vercel-f4aqq1leu-csia-s-projects.vercel.app/api/report",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(issueData),
+        }
+      );
+      const data = await response.json();
 
-    const response = await fetch(
-      "https://backend-vercel-f4aqq1leu-csia-s-projects.vercel.app/api/report",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(issueData),
+      if (response.ok) {
+        document
+          .getElementById("confirmationMessage")
+          .classList.remove("hidden");
+        setTimeout(() => {
+          alert("Your report has been submitted!");
+          window.location.href = "/home.html";
+        }, 1000);
+      } else {
+        alert("There was an error submitting your report. Please try again and fill all fields.");
+        console.error("Server Response Error:", data);
       }
-    );
-    const data = await response.json();
-    if (response.ok) {
-      document.getElementById("confirmationMessage").classList.remove("hidden");
-      setTimeout(() => {
-        alert("Your report has been submitted!");
-      }, 1000);
-      window.location.href = "/home.html";
+    } catch (error) {
+      console.error("Error submitting report:", error);
+      alert("Error: " + error.message);
     }
 
     // // To store data in a localStorage
