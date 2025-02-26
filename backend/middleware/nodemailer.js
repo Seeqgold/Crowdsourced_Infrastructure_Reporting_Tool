@@ -1,29 +1,32 @@
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
-const transporter = nodemailer.createTranporter({
+const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: process.env.SMTP_PORT,
-        secure: false, 
+        secure: true, 
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
         },
       });
       
-      const sendEmail = async (to, subject, text) => {
+      const sendResetEmail = async (email, resetURL) => {
         try {
-          const mailOptions = {
-            from: process.env.SMTP_USER,
-            to,
-            subject,
-            text,
-          };
-      
-          const info = await transporter.sendMail(mailOptions);
-          console.log(`Email sent: ${info.messageId}`);
+            await transporter.sendMail({
+                from: `"CSIA" <${process.env.SMTP_USER}>`,
+                to: email,
+                subject: "Password Reset",
+                html: `<p>You requested a password reset. Click the link below to reset your password:</p>
+                       <a href="${resetURL}">${resetURL}</a>
+                       <p>If you didn’t request this, please ignore this email.</p>`
+            });
+    
+            console.log("Password reset email sent!");
         } catch (error) {
-          console.error('Error sending email:', error);
+            console.error("Error sending email:", error);
         }
-      };
-
-module.exports = sendEmail;
+    };
+    
+    module.exports = sendResetEmail;
+    
