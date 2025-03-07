@@ -97,6 +97,7 @@ const forgotPassword =async (req,res) =>{
     res.json({ message: "Password reset link sent to your email." });
   }
    catch (error) {
+    console.error("Forgot password error:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
