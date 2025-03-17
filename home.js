@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     alert("You need to login first!");
     window.location.href = "login.html";
   }
+
+  const logout = document.getElementById("logout");
+  logout.addEventListener("click", function () {
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+  })
   try {
     const response = await fetch(
       "https://backend-vercel-f4aqq1leu-csia-s-projects.vercel.app/api/report",
