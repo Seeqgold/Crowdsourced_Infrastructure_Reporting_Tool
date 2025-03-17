@@ -16,6 +16,6 @@ document.getElementById("signin-form").addEventListener("submit", async (e) => {
   );
   const data = await response.json();
   if (response.ok) {
-    window.location.href = "/home.html";
+    window.location.href = "login.html";
   }
 });
